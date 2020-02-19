@@ -1,17 +1,10 @@
-# Data pre-processing ----
-# Tweak the "am" variable to have nicer factor labels -- since this doesn't rely on any user inputs, we can do this once at startup and then use the value throughout the lifetime of the app
-mpgData <- mtcars
-mpgData$am <- factor(mpgData$am, labels = c("Automatic", "Manual"))
-# Captures the column headers for use as an expression
-dataHeaders <- colnames(mtcars)
-
 # Define server logic to plot various variables against mpg ----
 server <- function(input, output) {
   
   # Compute the formula text ----
   # This is in a reactive expression since it is shared by the output$caption and output$mpgPlot functions
   formulaText <- reactive({
-    paste("mpg ~", input$variable)
+    paste(c("mpg ~", input$variable), collapse = " + ")
   })
   
   # Return the formula text for printing as a caption ----
@@ -21,14 +14,38 @@ server <- function(input, output) {
   
   # Generate a plot of the requested variable against mpg ----
   # and only exclude outliers if requested
-  output$mpgPlot <- renderPlot({
-    boxplot(as.formula(formulaText()),
-            data = mpgData,
-            outline = input$outliers,
-            col = "#75AADB", pch = 19)
+  # output$mpgPlot <- renderPlot({
+  #   boxplot(as.formula(formulaText()),
+  #           data = mpgData,
+  #           outline = input$outliers,
+  #           col = "#75AADB", pch = 19)
     
     # Return a new dataset with just the columns checked ----
-    output$newData <- data.frame(input$variable)
+    # output$newData <- renderTable({data.frame(mtcars[c(input$variable)])})
+
+  # Transpose headers to record variable data
+  output$headerData <- renderDataTable({ data.frame( dataHeaders )
   })
+  
+  
+  
+  
+  # Enables button action and output of datatable...data and newData
+  # https://stackoverflow.com/questions/46521026/r-shiny-action-button-and-data-table-output
+  buttonData <- eventReactive(input$gobutton,{
+    if(is.null( mtcars[c(input$variable)] )){
+      return()
+    }
+    
+    df <- data.frame( mtcars[c(input$variable)] )
+    df
+  })
+  
+  output$newData <- renderDataTable({
+    buttonData()
+  })
+
+  
+  # })
   
 }

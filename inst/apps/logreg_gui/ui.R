@@ -7,6 +7,9 @@ ui <- pageWithSidebar(
   # Sidebar panel for inputs ----
   sidebarPanel(
     
+    # Action Button: Process the variables
+    actionButton("gobutton","Start"),
+    
     # Input: Selector for variable to plot against mpg ----
     checkboxGroupInput("variable", "Variables:", dataHeaders),
     
@@ -23,9 +26,12 @@ ui <- pageWithSidebar(
     h3(textOutput("caption")),
     
     # Output: Plot of the requested variable against mpg ----
-    plotOutput("mpgPlot"),
+    # plotOutput("mpgPlot"),
     
-    # Output: Data Frame ----
-    tableOutput("newData")
+    # Output: Data Frame (headers) ----
+    dataTableOutput("headerData"),
+    
+    # Output: Data Frame (data) ----
+    dataTableOutput("newData")
   )
 )
