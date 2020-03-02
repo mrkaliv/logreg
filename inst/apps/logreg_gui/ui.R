@@ -20,11 +20,8 @@ ui <- pageWithSidebar(
     # Output: Formatted text for caption ----
     h3(textOutput("caption")),
     
-    # Output: Data Frame (headers) ----
-    dataTableOutput("headerData"),
-    
     # Output: Data Frame (data) ----
-    dataTableOutput("newData")
+    DT::dataTableOutput("newData")
   ) # end mainPanel
   
 ) # end pagewithSidebar
