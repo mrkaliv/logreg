@@ -15,9 +15,9 @@ server <- function(input, output) {
   # formulaText_code <- reactive({
   #   paste(c(input$variable), collapse = " + ")
   # })
-  formulaText_code <- reactive({
-       paste(c("GDP + FT5Y"))
-     })
+  # formulaText_code <- reactive({
+  #      paste(c("GDP + FT5Y"))
+  #    })
   
   rv <- reactiveValues(out_put = NULL)
   
@@ -30,10 +30,25 @@ server <- function(input, output) {
     
     observeEvent(input$gobutton, {   
     
+      
+      # Making smaller datatable based on items checked
+      # Formerly Test_Data_Small in R sample code
+      # df <- data.frame(input$variable)
+      # output$df <- DT::renderDataTable({df})
+      
+      small_dt <- DT::datatable(Test_Data[, as.character(c(input$variable))], rownames = F)
+      # This is the output for shiny, I don't necessarily need to show this.  Can comment out later.
+      output$small_data <- DT::renderDataTable(small_dt)
+      
+      # small_data <- eventReactive(input$gobutton,{
+      #   if(is.null(input$variable)){
+      #     return()
+      #   }})
+      
       # Loop through columns
       # ___TEST VALUES___ this forumla has some PLACEHOLDER values for testing still in it.
-      #my_formula <- paste(colnames(Test_Data_Small)[1], " ~ GDP + IMR")
-      my_formula <- paste(colnames(Test_Data_Small)[1], " ~ ", input$variable)
+      my_formula <- paste(colnames(Test_Data_Small)[1], " ~ GDP + IMR")
+      #my_formula <- paste(colnames(Test_Data_Small)[1], " ~ ", input$variable)
       mylogit <- glm(my_formula, data = Test_Data, family = "binomial")
       modelLLR <- logLik(mylogit)[1]
       rv$out_put <- matrix(ncol=2, nrow=ncol(Test_Data))

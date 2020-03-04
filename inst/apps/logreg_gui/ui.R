@@ -21,7 +21,11 @@ ui <- pageWithSidebar(
     h3(textOutput("caption")),
     
     # Output: Data Frame (data) ----
-    DT::dataTableOutput("newData")
-  ) # end mainPanel
+    DT::dataTableOutput("newData"),
+  
+    # Ouput: Test df -- will delete later (make sure to get rid of comma above)
+    DT::dataTableOutput("small_data")
+    
+    ) # end mainPanel
   
 ) # end pagewithSidebar
