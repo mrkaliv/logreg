@@ -22,7 +22,8 @@ if (i == colnames(Test_Data_Small)[indx]) {}
 
 # Loop through columns
 # ___TEST VALUES___ this forumla has some PLACEHOLDER values for testing still in it.
-my_formula <- paste(colnames(Test_Data_Small)[1], " ~ GDP + IMR")
+#my_formula <- paste(colnames(Test_Data_Small)[1], " ~ GDP + IMR")
+my_formula <- paste(colnames(Test_Data)[1], " ~ GDP + IMR")
 mylogit <- glm(my_formula, data = Test_Data, family = "binomial")
 modelLLR <- logLik(mylogit)[1]
 output <- matrix(ncol=2, nrow=ncol(Test_Data))
