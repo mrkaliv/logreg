@@ -2,7 +2,7 @@
 ui <- pageWithSidebar(
   
   # App title ----
-  headerPanel("Logistics Regression"),
+  headerPanel("Step-Wise Logistic Regression"),
   
   # Sidebar panel for inputs ----
   sidebarPanel(
@@ -24,7 +24,7 @@ ui <- pageWithSidebar(
     DT::dataTableOutput("newData"),
     
     # Ouput: Test Test_Data_Small -- will delete later (make sure to get rid of comma above)
-    DT::dataTableOutput("small_data")
+    # DT::dataTableOutput("small_data")
     
     ) # end mainPanel
   
