@@ -1,11 +1,13 @@
 Package: logreg
 Type: Package
-Title: What the Package Does in One 'Title Case' Line
-Version: 1.0
+Title: Builds a logistic regression one variable at a time
+Version: 0.1.0
 Date: 2020-01-31
-Author: Your Name
-Maintainer: Your Name <your@email.com>
-Description: One paragraph description of what the package does as one or more full sentences.
+Authors@R: person("Benjamin", "Leiby", email = "kaliv_farstryder@hotmail.com", role = c("aut", "cre"))
+Maintainer: Benjamin Leiby <kaliv_farstryder@hotmail.com>
+Description: The user will be able to check each variable per iteration to understand which variable will be most benefitical to the logistic regression.  The user will be able to continue to include further variables and see how the equations performs better at predictions.
 License: GPL (>= 2)
 Imports: Rcpp (>= 1.0.3)
-LinkingTo: Rcpp
+LinkingTo: Rcpp,
+RoxygenNote: 7.0.2
+Encoding: UTF-8
