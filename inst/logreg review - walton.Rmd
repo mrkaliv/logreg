@@ -1,0 +1,43 @@
+---
+title: "logreg Review: Walton"
+output: html_document
+---
+
+Accuracy
+    
+  - Are the results accurate?
+  
+      *Reviewer: Well, I think there might be an error here. When a box is clicked and a new variable is added to the model, the new equation is displayed correctly. However, the data table shows the incorrect model - the included factors are zeroed out, and all the unused factors remain in the model. I do not think this behavior is intentional. As far as the GUI is concerned, the results are listed in a nice, useable data table. Very nice! *
+      
+  - Is it clear how the results were computed?
+  
+      *Reviewer:  As far as the shiny app is concerned, the results are all under the hood and are not made available to the user. However, the user has no real need for these calculations (when they are correct). The developer is just doing a simple logistic regression. *
+
+Compilation
+    
+  - Did the analytic work? (i.e. install correctly, startup
+        correctly)
+        
+      *Reviewer: Yes, the package downloaded easily the first time and worked as intended. I was able to pull up the shiny GUI with no issues. *
+        
+  - Were errors encountered when executing code according to the
+        documentation?
+        
+      *Reviewer: I did not encounter a single error when using the package. All the needed packages were loaded when I downloaded the package for the first time. *
+
+Ease of use
+    
+  - Is it clear how to use the analytic? (i.e. is the documentation
+        clear)
+        
+      *Reviewer: Yes, it was very clear. The developer added (via function tooltip) the documentation to run the package. There was a README present, but was not very informative, or fully correct. For example, the README states the user can perform stepwise logistic regression, which it does. However, it should state that the regression is only performed on the developer's dataset. Info on what exactly this dataset is is available, but you have to search for it. It would have been nice to be included in the README and/or the app GUI itself. *
+        
+  - Are the visualizations/plots interpretable?
+  
+      *Reviewer: Yes, the results are shown in a nice searchable data table. The regression equation (factors used) are also shown real-time as the user updates them. *
+      
+Final Grade
+
+  - Please provide a final grade
+
+      *Reviewer: After reviewing the package and the provided rubric, my recommendation is a grade of 40/50 - Satisfactory. Here's why: the documentation was limited, and there were severe errors (the app returned the opposite of what the user wanted). This means the app does not do what it's intended to do. The documentation does not detail what the factors mean, and it's pretty bare bones. A little more effort here could have gone a long way. *
