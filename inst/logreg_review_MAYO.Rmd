@@ -1,0 +1,54 @@
+---
+title: "logreg Review"
+author: "Benjamin Mayo"
+date: "March 18, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Accuracy
+    
+  - Are the results accurate?
+  
+      I am not sure.  Once I opened the app, I expected that checking the variables would include them in the model, but it includes all of the unchecked variables.  I think a little bit of explanation on the app page would be helpful.
+      
+  - Is it clear how the results were computed?
+  
+     As far as the calculations the drive the shiny app, they are not.  The README file does discuss the GLM method that I assume is used in the app, which does appear to be correct.  It was unclear what data was being used to do the calculations without the GLM line instruction however.
+     
+Compilation
+    
+  - Did the analytic work? (i.e. install correctly, startup
+        correctly)
+        
+      The only issues I encountered were with installing/updating the Rcpp package, which is likely an error on my machine.
+        
+  - Were errors encountered when executing code according to the
+        documentation?
+        
+      The shiny app loaded correctly and had consistent functionality for all of the options.  No issues encountered.
+      
+Ease of use
+    
+  - Is it clear how to use the analytic? (i.e. is the documentation
+        clear)
+        
+      The README was very clear on how to load the package and the GUI; however, it was unclear what exactly the stepwise regression was working on.  I did eventually find the dataset, but did not realize at first that it was a fixed dataset that I could not change.
+        
+  - Are the visualizations/plots interpretable?
+  
+      The table very clearly displays the regression variables (though it could have better column names).  I actually really like the search feature, but I'm not sure it's necessary on a limited dataset.
+      
+Final Grade
+  - Please provide a final grade
+I would recommend a grade of Satisfactory:
+      
+* The documentation was fairly limited
+	  
+* The data set was fixed, but not clear that that was the case (if it was designed for custom data, it did not indicate as such clearly)
+	  
+* The app appeared to work against what was intuitive (check marks excluded the variable as opposed to include).
